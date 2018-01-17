@@ -27,7 +27,7 @@ module CookieFlag
     end
 
     def feature_flags
-      @feature_flags ||= Rails.application.config_for(CookieFlag.config.file_name).with_indifferent_access
+      @feature_flags ||= Rails.application.config_for(CookieFlag.config.name).with_indifferent_access
     end
   end
 end

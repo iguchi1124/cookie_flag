@@ -1,9 +1,9 @@
 module CookieFlag
   class Configuration
-    attr_accessor :file_name
+    attr_accessor :name
 
     def initialize
-      @file_name = 'cookie_flag'
+      @name = 'cookie_flag'
     end
   end
 end
