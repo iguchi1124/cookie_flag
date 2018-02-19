@@ -61,7 +61,7 @@ class NewFeaturesController < ApplicationController
   end
 
   def create
-    # enanble feature example
+    # enable feature example
     cookies[:new_feature] = feature_flags[:new_feature]
   end
 end
