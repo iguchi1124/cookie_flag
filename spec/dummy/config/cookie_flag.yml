@@ -1,0 +1,8 @@
+default: &default
+  new_feature: '1'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
