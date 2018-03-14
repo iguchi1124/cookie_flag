@@ -1,4 +1,5 @@
 require 'cookie_flag/helper'
+require 'rails'
 
 module CookieFlag
   class Railtie < Rails::Railtie
