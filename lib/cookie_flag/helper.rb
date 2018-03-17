@@ -1,3 +1,4 @@
+require 'active_support/concern'
 require 'cookie_flag/unavailable_error'
 
 module CookieFlag
