@@ -1,5 +1,7 @@
 # CookieFlag
 
+[![Build Status](https://travis-ci.org/iguchi1124/cookie_flag.svg?branch=master)](https://travis-ci.org/iguchi1124/cookie_flag)
+
 Cookie based feature flags implementation for Rails.
 
 ## Installation
