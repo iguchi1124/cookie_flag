@@ -6,7 +6,7 @@ require "cookie_flag/version"
 module CookieFlag
   class << self
     def config
-      @config ||= Configuration.new
+      @config ||= Configuration.new(name: 'cookie_flag')
     end
 
     def configure
