@@ -24,7 +24,7 @@ module CookieFlag
     def feature_available?(feature_name)
       feature_flags[feature_name].present? &&
         cookies.has_key?(feature_name) &&
-        cookies[feature_name] == feature_flags[feature_name]
+        cookies[feature_name].to_s == feature_flags[feature_name].to_s
     end
 
     def feature_flags
