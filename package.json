@@ -1,0 +1,10 @@
+{
+  "name": "cookie_flag",
+  "private": true,
+  "dependencies": {
+    "uikit": "^3.1.4"
+  },
+  "scripts": {
+    "build": "cp node_modules/uikit/dist/css/uikit.min.css vendor/assets/stylesheets/ && cp node_modules/uikit/dist/js/uikit.min.js vendor/assets/javascripts/"
+  }
+}
