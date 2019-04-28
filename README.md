@@ -39,6 +39,16 @@ production:
 
 then, you can use cookie based feature flag API at controllers and views.
 
+If you want to enable or disable features from admin page, you can use console web.
+
+Edit your `config/routes.rb`
+
+```rb
+Rails.application.routes.draw do
+  mount CookieFlag::Console, at: "/cookie_flag" if Rails.env.development?
+end
+```
+
 ### Controllers
 
 Use `feature` class method at controller, you can return 404 response at disabled feature endpoints.
