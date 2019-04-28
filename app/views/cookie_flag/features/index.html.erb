@@ -1,13 +1,17 @@
 <h2>Features</h2>
 
-<% @features.each do |feature| %>
-  <%= form_with scope: :feature, url: feature_path(feature), method: :put, class: 'uk-form' do |f| %>
-    <div class="uk-form-row">
-      <%= f.hidden_field :enabled, value: !feature_available?(feature) %>
-      <%= f.label feature, class: 'uk-form-label' %>
-      <div class="uk-form-controls">
-        <%= f.submit feature_available?(feature) ? "disable" : "enable", class: feature_available?(feature) ? "uk-button uk-button-danger" : "uk-button uk-button-primary" %>
+<% if @features.empty? %>
+  <p class="uk-text-muted">-- no available feature flags --</p>
+<% else %>
+  <% @features.each do |feature| %>
+    <%= form_with scope: :feature, url: feature_path(feature), method: :put, class: 'uk-form' do |f| %>
+      <div class="uk-form-row">
+        <%= f.hidden_field :enabled, value: !feature_available?(feature) %>
+        <%= f.label feature, class: 'uk-form-label' %>
+        <div class="uk-form-controls">
+          <%= f.submit feature_available?(feature) ? "disable" : "enable", class: feature_available?(feature) ? "uk-button uk-button-danger" : "uk-button uk-button-primary" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
