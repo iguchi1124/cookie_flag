@@ -71,11 +71,6 @@ class NewFeaturesController < ApplicationController
       redirect_to root_path
     end
   end
-
-  def create
-    # enable feature example
-    cookies[:new_feature] = feature_flags[:new_feature]
-  end
 end
 ```
 
