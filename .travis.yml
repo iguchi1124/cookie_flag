@@ -1,16 +1,27 @@
-sudo: required
-dist: trusty
 language: ruby
-rvm:
-  - 2.4.1
-before_install:
-  - gem install bundler --pre
-before_script:
-  - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
-  - sudo apt-get install libnss3
-  - sudo apt-get --only-upgrade install google-chrome-stable
-  - sudo cp chromedriver /usr/local/bin/.
-  - sudo chmod +x /usr/local/bin/chromedriver
 
-script: DISPLAY=:99.0 xvfb-run bundle exec rspec
+rvm:
+  - 2.3
+  - 2.4
+  - 2.5
+  - 2.6
+
+before_install:
+  - "gem install bundler"
+
+install:
+  - "bundle install --path vendor/bundle"
+
+script:
+  - "bundle exec rspec spec"
+
+before_script:
+  - "ln -s /usr/lib/chromium-browser/chromedriver ~/bin/"
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - chromium-chromedriver
+  chrome: stable

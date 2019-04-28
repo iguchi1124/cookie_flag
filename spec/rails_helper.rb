@@ -17,7 +17,7 @@ end
 
 Capybara.register_driver :selenium_chrome_headless do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu disable-extensions lang=en window-size=1280,800) }
+    chromeOptions: { args: %w(no-sandbox headless disable-gpu disable-extensions lang=en window-size=1280,800) }
   )
 
   Capybara::Selenium::Driver.new(
@@ -28,6 +28,8 @@ Capybara.register_driver :selenium_chrome_headless do |app|
 end
 
 Capybara.default_driver = Capybara.javascript_driver = :selenium_chrome_headless
+
+Capybara.server = :webrick
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
