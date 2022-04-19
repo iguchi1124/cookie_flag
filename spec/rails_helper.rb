@@ -11,22 +11,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'selenium/webdriver'
 
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-Capybara.register_driver :selenium_chrome_headless do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(no-sandbox headless disable-gpu disable-extensions lang=en window-size=1280,800) }
-  )
-
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    desired_capabilities: capabilities
-  )
-end
-
 Capybara.default_driver = Capybara.javascript_driver = :selenium_chrome_headless
 
 Capybara.server = :webrick
